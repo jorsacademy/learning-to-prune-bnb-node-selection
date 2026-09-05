@@ -52,7 +52,7 @@ class ImitationPolicy:
         path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
     @classmethod
-    def load(cls, path: str | Path) -> "ImitationPolicy":
+    def load(cls, path: str | Path) -> ImitationPolicy:
         payload = json.loads(Path(path).read_text(encoding="utf-8"))
         if payload.get("format_version") != 1:
             raise ValueError("unsupported policy format")
